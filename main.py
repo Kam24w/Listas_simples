@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox, simpledialog
 from datetime import datetime
 
 
-class Node:
+class TaskNode:
     """
     Representa un nodo en la lista enlazada.
     Cada nodo contiene una tarea y una referencia al siguiente nodo.
@@ -29,7 +29,7 @@ class TaskLinkedList:
     
     def add_task(self, description):
         """Agrega una nueva tarea al final de la lista."""
-        new_node = Node(description)
+        new_node = TaskNode(description)
         
         if self.head is None:
             # Si la lista está vacía, el nuevo nodo es la cabeza
@@ -44,7 +44,7 @@ class TaskLinkedList:
     
     def insert_at_beginning(self, description):
         """Inserta una tarea al inicio de la lista."""
-        new_node = Node(description)
+        new_node = TaskNode(description)
         new_node.next = self.head
         self.head = new_node
     
@@ -232,7 +232,7 @@ class TaskManagerUI:
             head_info = f"{self.task_list.head.description[:20]}"
         
         self.info_label.config(
-            text=f"📌 Cabeza: {head_info} | Total de tareas: {total_tasks} | Tareas completadas: {completed_count}"
+            text=f"Cabeza: {head_info} | Total de tareas: {total_tasks} | Tareas completadas: {completed_count}"
         )
         
         # Mostrar cada tarea recorriendo la lista
